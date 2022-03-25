@@ -1,0 +1,64 @@
+package Animation;
+
+import java.awt.*;
+import static java.lang.Math.*;
+import javax.swing.*;
+import java.awt.geom.*;
+import java.util.*;
+import java.lang.*;
+
+class Main extends JPanel
+{
+    int x =120;
+    int y =0;
+
+    private void moveNote()
+    {
+        //x+=1;
+        y+=10;
+    }
+    
+    public int getY() {
+    	return y;
+    }
+
+    void SongGUI(Graphics2D g) {
+    	g.setStroke(new BasicStroke(2));
+    	g.setColor(Color.black);
+    	
+    	for (int i = 120; i <= 520; i=i+100) {
+    	Line2D.Double line = new Line2D.Double(i,0,i,640);
+    	g.draw(line);
+    	}
+    	Line2D.Double line = new Line2D.Double(0,540,640,540);   
+    	g.draw(line);
+    }
+    
+    public void paint (Graphics gg)
+    {
+        super.paint(gg);
+        Graphics2D g= (Graphics2D) gg;
+        SongGUI(g);
+        gg.fillOval(x, y, 100, 100);
+    }
+
+    public static void main(String[] args) throws InterruptedException{
+        JFrame frame = new JFrame("Animation");
+        Main note = new Main();
+        frame.add(note);
+        frame.setVisible(true);
+        frame.setSize(640,640);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        while (true)
+        {
+            note.moveNote();
+            note.repaint();
+            try {
+            	Thread.sleep(10);
+            } catch (InterruptedException e) {
+            	e.printStackTrace();
+            }
+        }
+    }
+}

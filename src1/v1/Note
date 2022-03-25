@@ -1,0 +1,42 @@
+package Bosu;
+
+import java.awt.*;
+import java.awt.event.*;
+import static java.lang.Math.*;
+import javax.swing.*;
+import java.awt.geom.*;
+import java.util.*;
+import java.lang.*;
+
+class Note extends JPanel implements ActionListener
+{
+    int x =0;
+    int y =0;
+    
+    public Note(int x, int y) {
+    	this.x=x;
+    	this.y=y;
+    }
+
+    public void moveNote()
+    {
+
+        //x+=1;
+        y+=30;
+    }
+    
+    public int getY() {
+    	return y;
+    }
+
+    public void paint (Graphics g)
+    {
+        super.paint(g);
+        g.fillOval(x, y, 100, 100);
+    }
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,29 @@
+package Bosu;
+
+
+import java.awt.*;
+import static java.lang.Math.*;
+import javax.swing.*;
+import java.lang.*;
+ 
+class Main{ 
+public static void main(String[] args) throws InterruptedException{
+        SwingUtilities.invokeLater(() -> {
+            JFrame f = new JFrame();
+            JFrame f2 = new JFrame();
+            GUI gui = new GUI(1);
+            //Note note = new Note(120,0);
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            f.setTitle("Archimedean Spiral");
+            f.setResizable(false);
+            //f.add(note, BorderLayout.CENTER);
+            f.add(new GUI(1), BorderLayout.CENTER);
+            f.pack();
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+            
+           
+            
+        });
+    }
+}
